@@ -8,10 +8,21 @@ app.use(express.json())
 app.use(cors());
 
 const db = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"root",
-    database:"menubrazza"
+    host:"brazza.cj3dzestajaw.sa-east-1.rds.amazonaws.com",
+    port:"3306",
+    user:"admin",
+    password:"rootroot",
+    database:"brazzaDB"
+})
+
+db.connect((err)=>{
+    if(err) {
+        console.log(err.message);
+        return;
+    } else {
+        console.log("connected to database!")
+    }
+
 })
 
 app.get('/', (req, res) => {
